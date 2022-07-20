@@ -27,15 +27,15 @@ module.exports = () => {
         swDest: "src-sw.js"
       }),
       new WebpackPwaManifest({
+        name: "Traugh-text-editor",
         fingerprints: false,
         inject: true,
-        name: "text-editor",
         short_name: "JATE",
         description: "Just Another Text Editor",
         background_color: "#808080",
         theme_color: "#F5F5F5",
-        start_url: "/",
-        publicPath: "/",
+        start_url: "./",
+        publicPath: "./",
         icons: [
           {
             // adding our images path and sizes for images
