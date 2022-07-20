@@ -16,12 +16,12 @@ const initdb = async () =>
 export const putDb = async (id, content) => {
   console.log("Grabbing data from JATEDB")
   const jateDb = await openDB("jate", 1)
-  const transaction = transaction.objectStore("jate")
+  const transaction = jateDb.transaction("jate", "readwrite")
   const obj = transaction.objectStore("jate")
   // need to use .put so we can update the id and content
   const req = obj.put({ id: id, content: content })
-  const res = await await req
-  console.log("Data saved to JATEDB")
+  const res = await req
+  console.log("Data saved to JATEDB", res)
   
 }
 
