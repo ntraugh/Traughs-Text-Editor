@@ -12,6 +12,17 @@ const initdb = async () =>
     },
   });
 
+  // Add logic for a method that gets all the content from the database
+  export const getDb = async (content) => {
+    console.log("Grabbing data from JATEDB")
+    const jateDb = await openDB("jate", 1)
+    const transaction = jateDb.transaction("jate", "readwrite")
+    const obj = transaction.objectStore("jate")
+    // using .getAll method to grab all the content
+    const req = obj.getAll()
+    const res = await req
+    console.log("Data saved to JATEDB", res)
+  };
 // Add logic to a method that accepts some content and adds it to the database
 export const putDb = async (id, content) => {
   console.log("Grabbing data from JATEDB")
@@ -25,16 +36,5 @@ export const putDb = async (id, content) => {
   
 }
 
-// Add logic for a method that gets all the content from the database
-export const getDb = async (content) => {
-  console.log("Grabbing data from JATEDB")
-  const jateDb = await openDB("jate", 1)
-  const transaction = jateDb.transaction("jate", "readwrite")
-  const obj = transaction.objectStore("jate")
-  // using .getAll method to grab all the content
-  const req = obj.getAll()
-  const res = await req
-  console.log("Data saved to JATEDB", res)
-};
 
 initdb();
