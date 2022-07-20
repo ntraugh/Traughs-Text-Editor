@@ -1,7 +1,7 @@
 {
-  "name": "JATE",
+  "name": "text-editor",
   "version": "1.0.0",
-  "description": "",
+  "description": "a text editor",
   "main": "server.js",
   "scripts": {
     "start:dev": "concurrently \"cd client && npm run build\" \"cd server && npm run server\"",
@@ -16,7 +16,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "workbox-strategies": "^6.5.3"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
